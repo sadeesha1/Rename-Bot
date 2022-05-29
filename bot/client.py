@@ -7,6 +7,10 @@ from pyrogram.storage import Storage
 from configs import Config
 from bot.core.new import New
 
+from signal import signal, SIGPIPE, SIG_DFL 
+#Ignore SIG_PIPE and don't throw exceptions on it... (http://docs.python.org/library/signal.html)
+signal(SIGPIPE,SIG_DFL) 
+
 LOGGER = Config.LOGGER
 log = LOGGER.getLogger(__name__)
 
